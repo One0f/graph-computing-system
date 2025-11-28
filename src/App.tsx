@@ -52,10 +52,13 @@ import Graph from 'graphology';
 import forceAtlas2 from 'graphology-layout-forceatlas2';
 // @ts-ignore
 import louvain from 'graphology-communities-louvain';
+
 // @ts-ignore
-import { pagerank } from 'graphology-metrics/centrality';
+import pagerank from 'graphology-pagerank';  // 改成从独立包引入
+
 // @ts-ignore
-import { betweenness } from 'graphology-metrics/centrality'; 
+import { betweennessCentrality } from 'graphology-metrics/centrality'; // 改正标准函数名
+
 // @ts-ignore
 import { bidirectional } from 'graphology-shortest-path/unweighted'; 
 
@@ -362,7 +365,8 @@ function GraphApp() {
 
   const runBetweenness = () => {
     syncGraph(); const graph = graphRef.current; if (!graph?.order) return;
-    const scores = betweenness(graph); const max = Math.max(...(Object.values(scores) as number[])) || 0;
+    const scores = betweennessCentrality(graph); 
+    const max = Math.max(...(Object.values(scores) as number[])) || 0;
     if (max===0) { alert("ℹ️ 暂无核心桥梁"); return; }
     let found = false;
     setNodes(nds => nds.map(n => {
