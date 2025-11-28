@@ -16,8 +16,11 @@
     "@mui/material": "^7.3.5",
     "graphology": "^0.26.0",
     "graphology-communities-louvain": "^2.0.2",
+    "graphology-layout": "^0.6.1",
+    "graphology-layout-forceatlas2": "^0.10.1",
     "graphology-metrics": "^2.4.0",
     "graphology-pagerank": "^1.1.0",
+    "graphology-shortest-path": "^2.1.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "reactflow": "^11.11.4"
